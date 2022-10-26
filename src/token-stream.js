@@ -362,6 +362,13 @@ TokenStream.prototype.isNumber = function () {
       pos = resetPos;
     }
   }
+  else if(c && ![' ', '\t', '\n', '\r', ')'].includes(c)){
+    console.log("INTERPLAY NOT Valid number")
+    valid = false;
+  }
+  else {
+    console.log("STILL Valid number", c);
+  }
 
   if (valid) {
     this.current = this.newToken(TNUMBER, parseFloat(this.expression.substring(startPos, pos)));
